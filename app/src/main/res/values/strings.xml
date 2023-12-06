@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PlayTask_HWJ</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_caption_0_task">任务</string>
+    <string name="tab_caption_1_reward">奖励</string>
+    <string name="string_PlayTask">PlayTask</string>
+    <string name="Button_Add_Work">添加任务</string>
+    <string name="string_button_ok">确定</string>
+    <string name="string_task_itemtitle">任务内容</string>
+    <string name="string_task_score">可获得的成就点数</string>
+    <string name="string_task_introduce">成就点数: 指您每完成一次任务可获得的成就点数\n数量:指您此任务需要完成的次数(默认为一次)\n\n每日任务: 完成后次日凌晨两点重新出现\n参考: 8点前起床、吃早餐、30分钟有氧运动\n每周任务: 完成后下周一凌晨两点重新出现\n参考: 整理房间、给家里打电话\n普通任务: 完成后不再重新出现参考:完成会议准备、完成毕业论文\n\n建议将任务可获得成就点根据您个人感觉的难易程度设置</string>
+    <string name="string_taskItem_title" />
+    <string name="string_taskItem_score" />
+    <string name="tab_caption_2_user">我</string>
+    <string name="string_userScore">当前分数为: 0</string>
+</resources>
