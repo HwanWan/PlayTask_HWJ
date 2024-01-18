@@ -78,6 +78,7 @@ public class TaskRecycleViewAdpater extends RecyclerView.Adapter<TaskRecycleView
             contextMenu.add(ContextMenu.NONE, 0, position, "添加");
             contextMenu.add(ContextMenu.NONE, 1, position, "修改");
             contextMenu.add(ContextMenu.NONE, 2, position, "已完成");
+            contextMenu.add(ContextMenu.NONE, 3, position, "删除");
         }
         public ViewHolder(View taskItemview) {
             // 将每个项的布局文件里的控件与控件对象绑定
