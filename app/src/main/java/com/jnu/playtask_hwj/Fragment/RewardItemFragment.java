@@ -96,9 +96,9 @@ public class RewardItemFragment extends Fragment {
                 updateItemlauncher.launch(intentUpdate);
                 break;
             case 2:
-            /**
-             * 删除功能
-             * */
+                /**
+                 * 删除功能
+                 * */
                 //设置暂停式提示消息：AlertDialog.Builder.setXxx().create().show()
                 new AlertDialog.Builder(RewardItemFragment.this.getContext())
                         .setTitle("提示")
@@ -108,7 +108,8 @@ public class RewardItemFragment extends Fragment {
                                 // 在这里编写点击确定按钮后的逻辑
                                 // 获取当前数据的位置
                                 int order = item.getOrder();
-                                // 扣分
+
+                                // -分
                                 Double newScore = UserScore.getScore()-Double.parseDouble(rewards.get(order).getScore());
                                 UserScore.setScore(newScore);
                                 if(TaskItemFragment.SHOW_USER_SCORE!=null)
@@ -118,13 +119,13 @@ public class RewardItemFragment extends Fragment {
                                 // 点击CheckBox时删除当前行
                                 rewards.remove(order);
                                 rewardRecycleViewAdpater.notifyItemRemoved(order);
-
                                 new DataBankReward().saveRewardItms(RewardItemFragment.this.getContext(),rewards);
                             }
                         })
                         .setNegativeButton("取消", null)
                         .create().show();
                 break;
+
 
             default:
                 return super.onContextItemSelected(item);
