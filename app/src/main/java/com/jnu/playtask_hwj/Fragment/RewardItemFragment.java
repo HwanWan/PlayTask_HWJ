@@ -125,6 +125,29 @@ public class RewardItemFragment extends Fragment {
                         .setNegativeButton("取消", null)
                         .create().show();
                 break;
+            case 3:
+                /**
+                 * 删除功能
+                 * */
+                //设置暂停式提示消息：AlertDialog.Builder.setXxx().create().show()
+                new AlertDialog.Builder(RewardItemFragment.this.getContext())
+                        .setTitle("提示")
+                        .setMessage("确定删除吗？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // 在这里编写点击确定按钮后的逻辑
+                                // 获取当前数据的位置
+                                int order = item.getOrder();
+
+                                // 点击CheckBox时删除当前行
+                                rewards.remove(order);
+                                rewardRecycleViewAdpater.notifyItemRemoved(order);
+                                new DataBankReward().saveRewardItms(RewardItemFragment.this.getContext(),rewards);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .create().show();
+                break;
 
 
             default:
