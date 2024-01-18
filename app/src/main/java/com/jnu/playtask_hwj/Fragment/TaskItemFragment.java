@@ -97,36 +97,57 @@ public class TaskItemFragment extends Fragment {
                 updateItemlauncher.launch(intentUpdate);
                 break;
             case 2:
-            /**
-             * 删除功能
-             * */
-                //设置暂停式提示消息：AlertDialog.Builder.setXxx().create().show()
-                new AlertDialog.Builder(TaskItemFragment.this.getContext())
-                        .setTitle("提示")
-                        .setMessage("确定已完成吗？")
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // 在这里编写点击确定按钮后的逻辑
-                                // 获取当前数据的位置
-                                int order = item.getOrder();
-
-                                // 加分
-                                Double newScore = Double.parseDouble(taskWorks.get(order).getScore()) + UserScore.getScore();
-                                UserScore.setScore(newScore);
-                                if(TaskItemFragment.SHOW_USER_SCORE!=null)
-                                    TaskItemFragment.SHOW_USER_SCORE.setText(SHOW_SCORE+UserScore.getScore());
-                                if(RewardItemFragment.SHOW_USER_SCORE!=null)
-                                    RewardItemFragment.SHOW_USER_SCORE.setText(SHOW_SCORE+UserScore.getScore());
-                                // 点击CheckBox时删除当前行
-                                taskWorks.remove(order);
-                                taskRecycleViewAdpater.notifyItemRemoved(order);
-                                new DataBankTask().saveShopItms(TaskItemFragment.this.getContext(),taskWorks);
-                            }
-                        })
-                        .setNegativeButton("取消", null)
-                        .create().show();
-                break;
-
+               /**
+                * 删除功能
+                * */
+                   //设置暂停式提示消息：AlertDialog.Builder.setXxx().create().show()
+                   new AlertDialog.Builder(TaskItemFragment.this.getContext())
+                           .setTitle("提示")
+                           .setMessage("确定已完成吗？")
+                           .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                               public void onClick(DialogInterface dialog, int id) {
+                                   // 在这里编写点击确定按钮后的逻辑
+                                   // 获取当前数据的位置
+                                   int order = item.getOrder();
+   
+                                   // 加分
+                                   Double newScore = Double.parseDouble(taskWorks.get(order).getScore()) + UserScore.getScore();
+                                   UserScore.setScore(newScore);
+                                   if(TaskItemFragment.SHOW_USER_SCORE!=null)
+                                       TaskItemFragment.SHOW_USER_SCORE.setText(SHOW_SCORE+UserScore.getScore());
+                                   if(RewardItemFragment.SHOW_USER_SCORE!=null)
+                                       RewardItemFragment.SHOW_USER_SCORE.setText(SHOW_SCORE+UserScore.getScore());
+                                   // 点击CheckBox时删除当前行
+                                   taskWorks.remove(order);
+                                   taskRecycleViewAdpater.notifyItemRemoved(order);
+                                   new DataBankTask().saveShopItms(TaskItemFragment.this.getContext(),taskWorks);
+                               }
+                           })
+                           .setNegativeButton("取消", null)
+                           .create().show();
+                   break;
+               case 3:
+                   /**
+                    * 删除功能
+                    * */
+                   //设置暂停式提示消息：AlertDialog.Builder.setXxx().create().show()
+                   new AlertDialog.Builder(TaskItemFragment.this.getContext())
+                           .setTitle("提示")
+                           .setMessage("确定删除吗？")
+                           .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                               public void onClick(DialogInterface dialog, int id) {
+                                   // 在这里编写点击确定按钮后的逻辑
+                                   // 获取当前数据的位置
+                                   int order = item.getOrder();
+                                   // 点击CheckBox时删除当前行
+                                   taskWorks.remove(order);
+                                   taskRecycleViewAdpater.notifyItemRemoved(order);
+                                   new DataBankTask().saveShopItms(TaskItemFragment.this.getContext(),taskWorks);
+                               }
+                           })
+                           .setNegativeButton("取消", null)
+                           .create().show();
+                   break;
             default:
                 return super.onContextItemSelected(item);
         }
